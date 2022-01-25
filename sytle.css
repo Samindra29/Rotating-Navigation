@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(66, 61, 61);
+    color: #222;
+    overflow-x: hidden;      /* removing scroll in x-axis */
+    margin: 0;
+}
+.container{
+    background-color: blanchedalmond;
+    transform-origin: top left;  
+    transition: transform 0.5s linear; 
+    min-height: 100vh;
+    width: 100vw;  
+    padding: 50px;
+}
+
+.container.show-nav{
+    transform: rotate(-20deg);
+}
+nav{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+nav ul{
+    list-style-type: none;   /* to get rid of the bullet points in the ul list */
+    padding-left: 30px;
+}
+nav ul li{
+    text-transform: uppercase;
+    color: white;
+    margin: 40px 0px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i{
+    font-size: 17px;
+    margin-right:10px;
+}
+
+/* to make the nav in an angle */
+
+nav ul li + li{        
+    margin-left: 15px; 
+    transform: translateX(-150%);
+}
+nav ul li + li + li{
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+/* when there is show-nav we want the nav bar to come in */
+.container.show-nav + nav li{
+    transform: translateX(0);    /* return to its original position */
+    transition-delay: 0.3s;
+}
+
+.circle-container{
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+.circle{
+    background-color: rgb(71, 191, 238);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg);
+}
+.circle button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.circle button#open{
+    left: 60%;
+}
+.circle button#close{
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+.circle button:focus{
+    outline: none;
+}
+.container img{
+    max-width: 100%;
+}
+
+.content{
+    max-width: 1000px;
+    margin: 50px auto;
+}
+.content h1{
+    margin: 0;
+}
+.content small{
+    color: rgb(206, 151, 0);
+    font-style: italic;
+}
+.content p{
+    color:rgb(0, 143, 199);
+    line-height: 1.5;
+}
+.content h1,
+h3{
+    color: rgb(228, 130, 1);
+}
